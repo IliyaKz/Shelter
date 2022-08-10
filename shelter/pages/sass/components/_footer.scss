@@ -1,0 +1,83 @@
+.footer {
+    height: 350px;
+    background: url("../../assets/images/footer-gradient-background.jpg");
+    background-repeat: no-repeat;
+    @media screen and (max-width: 1279.98px) {
+        height: auto;
+        background-size: 100% 100%;
+    }
+}
+.footer-content {
+    @include content-height (350px, $padding-top: 40px, $padding-bottom: 0);
+    @include flex ($justify: center, $column: 160px);
+    @media screen and (max-width: 1279.98px) {
+        height: auto;
+        padding-top: 30px;
+        flex-wrap: wrap;
+        @include flex ($justify: center, $column: calc(100% - 708px), $row: 60px);
+    }
+    @media screen and (max-width: 767.98px) {
+        @include flex ($direction: column, $justify: center, $align: center, $row: 40px);
+    }
+}
+.information-content {
+    padding-top: 16px;
+    @include flex ($direction: column);
+    &.contacts-content {
+        width: 279px;
+        gap: 40px;
+    }
+    &.locations-content {
+        width: 302px;
+        gap: 32px;
+        @media screen and (max-width: 767.98px) {
+            gap: 38px;
+        }
+    }
+    @media screen and (max-width: 1279.98px) {
+        padding: 0;
+    }
+    @media screen and (max-width: 767.98px) {
+        align-items: center;
+    }
+}
+.footer-link-container {
+    @include flex ($justify: start, $align: center, $column: 20px);
+    &.contacts-container {
+        height: 32px;
+    }
+    &.locations-container {
+        &:first-of-type {
+            height: 46px;
+            padding-top: 3px;
+            box-sizing: border-box;
+        }
+        @media screen and (max-width: 767.98px) {
+            align-self: start;
+        }
+    }
+}
+.footer-link {
+    text-decoration: none;
+}
+.footer-link-img {
+    padding-top: 3px;
+}
+.footer-img-wrapper {
+    @media screen and (max-width: 1279.98px) {
+        width: 100%;
+        @include flex ($justify: center)
+    }
+}
+.footer-img {
+    width: 300px;
+    height: 310px;
+    background: url("../../assets/images/footer-puppy.png");
+    background-repeat: no-repeat;
+    @media screen and (max-width: 767.98px) {
+        width: 260px;
+        height: 269px;
+        margin-top: -2px;
+        background-size: 100% 100%;
+    }
+}
