@@ -1,0 +1,45 @@
+.pets {
+    height: 877px;
+    background-color: $color-light-l;
+    @media screen and (max-width: 767.98px) {
+        height: auto;
+        padding-bottom: $section-little-padding;
+    }
+}
+.pets-content {
+    @include content-height (877px);
+    @include flex ($direction: column, $align: center, $row: 60px);
+    @media screen and (max-width: 767.98px) {
+        height: auto;
+        padding-top: $section-little-padding;
+        row-gap: 42px;
+    }
+}
+.slider-item {
+    width: 270px;
+    min-width: 270px;
+    height: 435px;
+    max-height: 435px;
+    border-radius: 9px;
+    background-color: $color-light-s;
+    overflow: hidden;
+    transition: 0.5s;
+    @include flex ($direction: column, $align: center, $row: 30px);
+    &:hover{
+        cursor: pointer;
+        box-shadow: 0px 5px 35px 14px rgba(13, 13, 13, 0.04);
+        background-color: $color-light-xl;
+        .button-type2 {
+            border: solid 2px $color-primary-light;
+            background-color: $color-primary-light;
+        }
+    }
+}
+.slider-pet-image {
+    background-color: $color-light-s;
+}
+.slider-pet-name {
+    height: 23px;
+    margin: 0;
+    @include text ($family: Georgia, $size: 20px, $line-height: 23px, $text-color: $color-dark-l);
+}

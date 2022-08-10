@@ -1,0 +1,21 @@
+@mixin flex ($direction: row, $justify: stretch, $align: stretch, $row: 0, $column: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    row-gap: $row;
+    column-gap: $column;
+}
+@mixin text ($family, $size, $style: normal, $line-height: 130%, $letter-spacing: 0.06em, $text-color) {
+    font-family: $family;
+    font-size: $size;
+    font-style: $style;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    font-weight: 400;
+    color: $text-color;
+}
+@mixin content-height ($parent-height, $padding-top: $section-top-padding, $padding-bottom: $section-bottom-padding) {
+    padding-top: $padding-top;
+    height: $parent-height - $padding-top - $padding-bottom;
+}

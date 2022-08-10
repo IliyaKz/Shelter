@@ -1,0 +1,245 @@
+@import 'fonts'; 
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/pets';
+@import 'components/popup';
+
+html {
+    scroll-behavior: smooth; 
+}
+body {
+    background-color: $color-light-xl;
+}
+.no-scroll {
+    overflow: hidden;
+}
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    @media screen and (max-width: 1279.98px) {
+        width: 100%;
+    }
+}
+.menu-background {
+    display: none;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    &.active {
+        display: block;
+    }
+}
+.header {
+    position: fixed;
+    padding-top: 30px;
+    padding-right: 40px;
+    background: $color-light-xl;
+    padding-bottom: 30px;
+    z-index: 1;
+    @media screen and (max-width: 1279.98px)  {
+        padding-right: 30px;
+    }
+}
+.title {
+    color: $color-dark-l;
+}
+.subtitle {
+    color: $color-dark-3xl;
+}
+.nav {
+    @media screen and (max-width: 767.98px) {
+        background-color: $color-light-xl;
+    }
+}
+.nav-link {
+    color: $color-dark-l;
+    &:hover {
+        color: $color-dark-3xl;
+    }
+    &:active, &.active {
+        color: $color-dark-3xl;
+        border-bottom: solid 3px $color-primary;
+    }
+}
+.burger-container {
+    & .burger-line {
+        background-color: #000;
+    }
+    &:hover .burger-line {
+        background-color: #000;
+    }
+}
+h3 {
+    height: 90px;
+    margin: 0;
+    @include text ($family: Georgia, $size: 35px, $text-color: $color-dark-l);
+    &.pets-title {
+        width: 400px;
+        text-align: center;
+        @media screen and (max-width: 767.98px) {
+            height: 64px;
+            max-width: 300px;
+        }
+    }
+    &.contacts-title, &.locations-title {
+        color: $color-light-xl;
+        @media screen and (max-width: 767.98px) {
+            max-width: 270px;
+            height: 64px;
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 767.98px) {
+        font-size: 25px
+    }
+}
+.pets {
+    height: 1342px;
+    padding-top: 120px;
+    @media screen and (max-width: 1279.98px) {
+        height: auto;
+    }
+    @media screen and (max-width: 767.98px) {
+        font-size: 25px
+    }
+}
+.pets-content {
+    @include content-height (1342px);
+    @include flex ($direction: column, $align: center, $row: 45px);
+    @media screen and (max-width: 1279.98px) {
+        height: auto;
+        padding-bottom: 76px;
+        row-gap: 30px;
+    }
+    @media screen and (max-width: 767.98px) {
+        padding-top: $section-little-padding;
+        padding-bottom: 0;
+        row-gap: $section-little-padding;
+    }
+}
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+.slider {
+    width: 100%;
+    height: 910px;
+    padding-top: 15px;
+    transform: translateX(0);
+    z-index: auto;
+    transition: 0.3s;
+    @include flex ($justify: space-between, $align: flex-start, $row: 20px, $column: 40px);
+    flex-wrap: wrap;
+    @media screen and (max-width: 1279.98px) {
+        height: 1365px;
+        padding: 0;
+        @include flex ($justify: center, $align: flex-start, $row: 30px, $column: calc(75.6% - 540px));
+    }
+    @media screen and (max-width: 767.98px) {
+        column-gap: calc(100% - 270px);
+    }
+    &.slider-left {
+        transform: translateX(-100vw);
+    }
+    &.slider-right {
+        transform: translateX(100vw);
+        // transition: 0s;
+    }
+}
+.button-type2 {
+    border: solid 2px $color-primary;
+    border-radius: 100px;
+    background-color: transparent;
+    transition: 0.5s;
+    p {
+        margin: 0;
+        @include text ($family: Georgia, $size: 17px, $text-color: $color-dark-3xl);
+    }
+    &.hover {
+        border: solid 2px $color-primary-light;
+        background-color: $color-primary-light;
+    }
+    &.popup-close-button {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        margin-top: 1px;
+        cursor: pointer;
+    }
+    &.pag-button {
+        width: 52px;
+        height: 52px;
+        padding: 0 0 3px;
+        margin-top: 1px;
+        p {
+            font-size: 20px;
+        }
+        &.page-number, &.page-number:hover {
+            pointer-events: none; 
+            cursor: default;
+            background-color: $color-primary;
+        }
+        &.disable, &.disable:hover {
+            pointer-events: none; 
+            cursor: default;
+            background-color: transparent;
+            border: solid 2px $color-dark-s;
+            p {
+                color: $color-dark-s;
+            }
+        }
+        cursor: pointer;
+        &:hover {
+            border: solid 2px $color-primary-light;
+            background-color: $color-primary-light;
+        }
+    }
+    &.slider-pet-button {
+        width: 187px;
+        height: 52px;
+        &:hover {
+            border: solid 2px $color-primary-light;
+            background-color: $color-primary-light;
+        }
+    }
+}
+// .slider-item {
+//     @media screen and (max-width: 1279.98px) {
+//         &:nth-child(7), &:nth-child(8) {
+//             display: none;
+//         }
+//     } 
+//     @media screen and (max-width: 767.98px) {
+//         &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+//             display: none;
+//         }
+//     }
+// }
+.button-container {
+    width: 340px;
+    padding-top: 4px;
+    @include flex ($justify: center, $column: 20px);
+    @media screen and (max-width: 1279.98px) {
+        padding-top: 10px;
+    }
+    @media screen and (max-width: 767.98px) {
+        width: 100%;
+        padding: 0;
+        column-gap: 10px;
+    }
+}
+h4 {
+    margin: 0;
+    @include text ($family: Georgia, $size: 20px, $line-height: 115%, $text-color: $color-dark-l);
+    &.contacts-text, &.locations-text {
+        color: $color-primary;
+    }
+}
